@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  	<title>Kapsch Images</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+ <h1>Kapsch</h1><br>
+
+{% if image %}
+       <p><img src="{{url_for('get_image_from_db', the_id=image['id'])}}"></p>
+{% endif %}
+<div>
+ <a href="{{url_for('get_images_from_db')}}">Bring the first photo</a><br><br>
+ </div>
+
+ <form method="post" action="/bring_next">
+     <button class="btn btn-success">next Photo</button></div>
+  </form><br>
+
+ <form method="post" action="/categorize" enctype="multipart/form-data">
+   <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Categorization
+       </button>
+       <div class="dropdown-menu">
+        <div> <input type="submit" name="category" value="A"></div>
+         <div><input type="submit" name="category" value="B"></div>
+         <div><input type="submit" name="category" value="C"/></div>
+       </div>
+ </form><br><br><br>
+
+
+
+<h2>Uploading photos and saving them in database</h2>
+   <form method="post" action="/upload" enctype="multipart/form-data">
+     <div><input type="file" name="inputfile"class="form-control" id="image"></div><br>
+
+
+     <button class="btn btn-warning"  >
+        <b>Save in database</b>
+    </button>
+   </form><br>
+
+   <form method="post" action="/download" enctype="multipart/form-data">
+
+
+</body>
+</html>

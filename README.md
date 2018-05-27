@@ -1,2 +1,2 @@
 # Kapsch-
-web app categorize images (Flask ,sqlalchemy)
+Web app categorize images (Flask ,sqlalchemy)
